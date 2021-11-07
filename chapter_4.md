@@ -5,13 +5,12 @@
  - **overflow**란 숫자의 크기가 아주 커서 $inf$ 또는 $-inf$로 approximate 되었을 때 발생하는 numerical error의 한 형태이다.
  - 다음과 같은 형태로 $\operatorname{softmax}$를 출력 함수로 사용할 때, 
     $$
-    \operatorname{softmax}(\boldsymbol{x})_{i}=\frac{\exp \left(x_{i}\right)}{\sum_{j=1}^{n} \exp \left(x_{j}\right)}
+        \operatorname{softmax}(\boldsymbol{x})_{i}=\frac{\exp \left(x_{i}\right)}{\sum_{j=1}^{n} \exp \left(x_{j}\right)}
     $$
     exponetial을 계산하기 때문에 숫자가 너무 작아지는 underflow나 숫자가 너무 커지는 overflow가 발생할 수 있는데 이를 해결하기 위해 아주 간단하게 
-    ```math
-    \operatorname{softmax}(\boldsymbol{z})_i \ (z=x-\max _{i} x_{i}) 
-
-    ```
+    $$
+        \operatorname{softmax}(\boldsymbol{z})_i \ (z=x-\max _{i} x_{i}) 
+    $$
     다음과 같이 처리하면 된다. 이와 유사한 numerical tricks은 [여기](https://www.deeplearningbook.org/slides/04_numerical.pdf)를 참고하면 된다.
 
 ### 4.2 Poor conditionaing
